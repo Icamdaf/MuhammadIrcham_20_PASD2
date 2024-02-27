@@ -1,36 +1,67 @@
-/**
- * Buku20
- */
 public class Buku20 {
+  String judul, pengarang;
+  int halaman, stok, harga;
 
-    String judul, pengarang;
-    int halaman, stok, harga;
-    
-    void tampilInformasi(){
-        System.out.println("judul buku =" +judul);
-        System.out.println("pengarang =" +pengarang);
-        System.out.println("jumlah halaman =" +halaman);
-        System.out.println("sisa stok =" + stok);
-        System.out.println("harga =" +harga);
-    
-    }
-    void terjual(int jml) {
-        if (stok > 0) {
-          // Stok cukup, lakukan pengurangan
+  void tampilInformasi() {
+      System.out.println("Judul: " + judul);
+      System.out.println("Pengarang: " + pengarang);
+      System.out.println("Jumlah Halaman: " + halaman);
+      System.out.println("Sisa Stok: " + stok);
+      System.out.println("Harga: Rp " + harga);
+      System.out.println("=================");
+  }
+
+  int terjual(int jml) {
+      if (stok>=jml) {
           stok -= jml;
-          System.out.println("Penjualan " + jml + " buku berhasil!");
-          System.out.println("Sisa stok: " + stok);
-        } else {
-          // Stok tidak cukup, tampilkan pesan error
-          System.out.println("Stok buku tidak mencukupi!");
-          System.out.println("Sisa stok: " + stok);
-        }
+      } else {
+          System.out.println("stok tidak cukup");
       }
-      
-void restock (int jml) {
-    stok += jml;
-}
-void gantiHarga (int hrg){
-    harga = hrg;
-}
+      return jml;
+  }
+
+  void restock(int jml) {
+      stok += jml;
+  }
+
+  void gantiHarga(int hrg) {
+      harga = hrg;
+  }
+
+  public Buku20() {
+
+  }
+  
+  public Buku20(String jdl, String pg, int hal, int stok, int hrg) {
+      judul = jdl;
+      pengarang = pg;
+      halaman = hal;
+      this.stok = stok;
+        harga = hrg;
+    }
+
+  int hitungHargaTotal(int terjual) {
+      int hargaTotal = harga * terjual;
+      System.out.println("Harga Total: " + hargaTotal);
+      return hargaTotal;
+  }
+  
+  int hitungDiskon(int hargaTotal) {
+      int diskon = 0;
+      if (hargaTotal>150000) {
+          diskon = hargaTotal * 12 / 100;
+          System.out.println("Anda Dapat Diskon 12% yaitu: " + diskon);
+      } else if (hargaTotal>=75000) {
+          diskon = hargaTotal * 5 / 100;
+          System.out.println("Anda Dapat Diskon 5% yaitu: " + diskon);
+      } else {
+          System.out.println("Anda Tidak Mendapat Diskon");
+      }
+      return diskon;
+  }
+
+  void hitungHargaBayar(int hargaTotal, int diskon) {
+      double hargaBayar = hargaTotal - diskon;
+      System.out.println("Total Pembayaran Anda Sebesar: " + hargaBayar);
+  }
 }

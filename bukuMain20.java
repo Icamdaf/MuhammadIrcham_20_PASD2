@@ -15,39 +15,20 @@ public class bukuMain20 {
         bk1.terjual(5);
         bk1.gantiHarga(60000);
         bk1.tampilInformasi();
-    }
-//     public static void main(String[] args) {
-            
-//         String judul, pengarang;
-//         int halaman, stok, harga;
+    
+Buku20 bk2 = new Buku20("Self reward" , "Maheera ayesha", 160, 29 ,59000);
+bk2.terjual(11);
+bk2.tampilInformasi();
         
-//         void tampilInformasi(){
-//             System.out.println("judul buku =" +judul);
-//             System.out.println("pengarang =" +pengarang);
-//             System.out.println("jumlah halaman =" +halaman);
-//             System.out.println("sisa stok =" + stok);
-//             System.out.println("harga =" +harga);
-        
-//         void terjual(int jml) {
-//             if (stok > 0) {
-//             // Stok cukup, lakukan pengurangan
-//             stok -= jml;
-//             System.out.println("Penjualan " + jml + " buku berhasil!");
-//             System.out.println("Sisa stok: " + stok);
-//             } else {
-//             // Stok tidak cukup, tampilkan pesan error
-//             System.out.println("Stok buku tidak mencukupi!");
-//             System.out.println("Sisa stok: " + stok);
-//             }
-//         }
-      
-//         void restock (int jml) {
-//             stok += jml;
-//         }
-//         void gantiHarga (int hrg){
-//             harga = hrg;
-//         }
-// }
+ Buku20 Ircham = new Buku20("Galuh Ayu" , "Muhammad ircham", 1000, 99, 80000);
+ Ircham.gantiHarga(90000000);
+ Ircham.terjual(98);
+ Ircham.tampilInformasi();
+ int terjual = Ircham.terjual(8);
+        int hargaTotal = Ircham.hitungHargaTotal(terjual);
+        int diskon = Ircham.hitungDiskon(hargaTotal);
+        Ircham.hitungHargaBayar(hargaTotal, diskon);
 
+    }   
 }
     
